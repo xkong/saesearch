@@ -1,0 +1,6 @@
+{% load i18n %}
+<form class="navbar-form navbar-left" role="search" target="_blank" method="get" action="{% url 'search_redirect' %}">
+    <div class="form-group">
+        <input class="form-control" type="text" placeholder="{% trans 'Search' %}" name="q" id="s">
+    </div>
+</form>

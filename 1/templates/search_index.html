@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load highlight i18n static %}
+{% block title %}{% trans "Search" %}{% endblock %}
+{% block content %}
+<div class="page-header"><h3>{% trans "Search" %}</h3></div>
+
+<form class="form-inline" role="form" id='search-form'>
+    <div class="form-group">
+        <div class="input-group">
+            <label class="sr-only" for="id_q">{% trans "Search" %}</label>
+            <input type="text" class="form-control" id="id_q" name="q" placeholder="{% trans "Search" %}" {% if query %}value="{{ query }}"{% endif %}>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-default">{% trans "Submit" %}</button>
+</form>
+<div id="search-results">
+</div>
+{% endblock %}
+{% block extra_js %}
+<script src="{% static 'js/ninan.js' %}"></script>
+<script>
+function ajaxSearch(){
+    $.ajax({
+        type: "GET",
+        url: "/search/",
+        data: { 
+            'q' : $('#id_q').val(),
+        },
+        beforeSend: beforeSend,
+        success: searchSuccess,
+        dataType: 'html'
+    });
+};
+function beforeSend(XMLHttpRequest){
+    $("#search-results").html("<hr ><p><img src='{% static "img/loading.gif" %}'/>{% trans 'Searching...'%}</p>");
+}
+function searchSuccess(data, textStatus, jqXHR){
+    $('#search-results').html(data);
+}
+$(function(){
+    $('#search-form').submit(function(e) {
+        e.preventDefault();
+        ajaxSearch();
+    });
+});
+{{ searched| safe}}
+</script>
+{% endblock %}

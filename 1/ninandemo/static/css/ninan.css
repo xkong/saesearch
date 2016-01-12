@@ -1,0 +1,114 @@
+/*
+ * CSS for ninan project.
+ * 
+ * xiaoyu <xiaokong1937@gmail.com>
+ *
+ *  2014
+ *
+ */
+
+
+.nn-sidebar{
+    margin-bottom: 30px;
+    margin-top: 30px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    background-color: #F7F5FA;
+    border-radius: 5px;
+    text-shadow:0 1px 0 #FFFFFF;
+}
+.nn-sidebar .nav .nav > li >a{
+    font-size: 90%;
+    padding-bottom: 3px;
+    padding-left: 30px;
+    padding-top: 3px;
+
+}
+
+.nn-sidebar .nav > li > a {
+    color: #716B7A;
+    display: block;
+    padding: 5px 20px;
+}
+
+.label{
+    font-size: 100%;
+}
+.form-horizontal .control-label{
+    text-align:left;
+}
+.nn-note-section p{
+    line-height:2 ;
+}
+
+.nn-indent-2{
+    text-indent: 2em;
+}
+
+.nn-comment-content{
+    padding-top: 10px;
+    line-height: 2;
+    background-color: #F7F5FA;
+}
+
+.pull-right{
+    text-align: right;
+}
+
+@media (min-width: 992px) {
+  .nn-sidebar .nav > .active > ul {
+    display: block;
+  }
+  /* Widen the fixed sidebar */
+  .nn-sidebar.affix,
+  .nn-sidebar.affix-bottom {
+    width: 213px;
+  }
+  .nn-sidebar.affix {
+    position: fixed; /* Undo the static from mobile first approach */
+  }
+  .nn-sidebar.affix-bottom {
+    position: absolute; /* Undo the static from mobile first approach */
+  }
+  .nn-sidebar.affix-bottom .nn-sidenav,
+  .nn-sidebar.affix .nn-sidenav {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  /* Widen the fixed sidebar again */
+  .nn-sidebar.affix-bottom,
+  .nn-sidebar.affix {
+    width: 263px;
+  }
+}
+
+
+.nn-footer {
+    border-top: 1px solid #E5E5E5;
+    color: #777777;
+    margin-top: 50px;
+    padding-bottom: 30px;
+    padding-top: 40px;
+    text-align: center;
+}
+
+#changyan_floatbar_wrapper{display:none}
+
+.social-icon {
+    background: url("http://7u2hjo.com1.z0.glb.clouddn.com/img/social.gif") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    height: 71px;
+    width: 73px;
+}
+
+.icon-weibo {
+  background-position: -147px -1px;
+}
+.icon-douban {
+  background-position: -1px -1px;
+}
+.icon-email {
+  background-position: -72px -1px;
+}

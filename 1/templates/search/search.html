@@ -1,0 +1,26 @@
+{% load highlight i18n %}
+{% if query %}
+    {% for result in page.object_list %}
+        <div class="page-header"><h4><a href="{{ result.object.get_absolute_url }}">{{ result.object.title }}</a></h4></div>  
+        <div class="nn-note-content">{% highlight  result.object.content with query css_class "bg-danger" %}</div> 
+    {% empty %}
+        <p>{% trans "No results found." %}</p>
+    {% endfor %}
+
+    {% if page.has_previous or page.has_next %}
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="pagination">
+            {% if page.has_previous %}
+                    <li class="previous"><a href="?q={{ query }}&amp;page={{ page.previous_page_number }}">&laquo; Previous</a></li>
+            {% endif %}
+            {% if page.has_next %}
+                    <li class="next"><a href="?q={{ query }}&amp;page={{ page.next_page_number }}">Next &raquo;</a></li>
+            {% endif %}
+                </ul>
+            </div>
+        </div>
+    {% endif %}
+{% else %}
+    {# Show some example queries to run, maybe query syntax, something else? #}
+{% endif %}
