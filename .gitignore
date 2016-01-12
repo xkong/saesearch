@@ -2,3 +2,4 @@
 /1/whoosh
 /1/ninandemo/*.pyc
 /1/demo/migrations
+/1/storage/kvdb.file
